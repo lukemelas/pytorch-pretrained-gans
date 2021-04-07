@@ -137,7 +137,7 @@ Naturally, there are some details that are specific to certain GANs.
 Please cite the following if you use this repo in a research paper:
 ```bibtex
 @inproceedings{melaskyriazi2021finding,
-  author    = {Melas-Kyriazi, Luke and Manrai, Arjun},
+  author    = {Melas-Kyriazi, Luke and Rupprecht, Christian and Laina, Iro and Vedaldi, Andrea},
   title     = {Finding an Unsupervised Image Segmenter in each of your Deep Generative Models},
   booktitle = arxiv,
   year      = {2021}
