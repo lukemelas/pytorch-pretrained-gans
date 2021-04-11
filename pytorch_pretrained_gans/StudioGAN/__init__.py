@@ -1,7 +1,6 @@
 import os
 from os.path import join
 from pathlib import Path
-from omegaconf.omegaconf import OmegaConf
 import numpy as np
 import torch
 import json

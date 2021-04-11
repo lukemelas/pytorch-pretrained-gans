@@ -92,10 +92,10 @@ pytorch_pretrained_gans
 │   └── weights
 │       └── download.sh   # (use this to download pretrained weights)
 ├── BigGAN
-│   ├── __init__.py
+│   ├── __init__.py   # (pretrained weights are auto-downloaded)
 │   ├── ...
 ├── StudioGAN
-│   ├── __init__.py
+│   ├── __init__.py   # (pretrained weights are auto-downloaded)
 │   ├── ...
 │   ├── configs
 │   │   ├── ImageNet
@@ -108,10 +108,10 @@ pytorch_pretrained_gans
 │   │       ├── ...
 │   │       └── download.sh  # (use this to download pretrained weights)
 ├── self_conditioned
-│   ├── __init__.py
+│   ├── __init__.py   # (pretrained weights are auto-downloaded)
 │   └── ...
 └── stylegan2_ada_pytorch
-    ├── __init__.py
+    ├── __init__.py   # (pretrained weights are auto-downloaded)
     └── ...
 ```
 

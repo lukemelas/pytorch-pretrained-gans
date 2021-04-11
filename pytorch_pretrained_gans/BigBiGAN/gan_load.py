@@ -1,10 +1,11 @@
 from pathlib import Path
 import torch
 from torch import nn
+from torch.utils import model_zoo
 from .model import BigGAN
-from .gan_with_shift import gan_with_shift
 
-DEFAULT_WEIGHTS_ROOT = Path(__file__).parent / 'weights/BigBiGAN_x1.pth'
+
+_WEIGHTS_URL = "https://www.dropbox.com/s/9w2i45h455k3b4p/BigBiGAN_x1.pth"
 
 
 class GeneratorWrapper(nn.Module):
@@ -48,18 +49,11 @@ def make_biggan_config(resolution):
     return config
 
 
-@gan_with_shift
-def make_big_gan(weights_root, resolution):
-    config = make_biggan_config(resolution)
-    G = BigGAN.Generator(**config)
-    G.load_state_dict(torch.load(weights_root, map_location=torch.device('cpu')), strict=False)
-    return GeneratorWrapper(G)
-
-
-def make_bigbigan(model_name='bigbigan-128', weights_root=DEFAULT_WEIGHTS_ROOT):
+def make_bigbigan(model_name='bigbigan-128'):
     assert model_name == 'bigbigan-128'
     config = make_biggan_config(resolution=128)
     G = BigGAN.Generator(**config)
-    G.load_state_dict(torch.load(weights_root, map_location=torch.device('cpu')), strict=False)
+    checkpoint = model_zoo.load_url(_WEIGHTS_URL, map_location='cpu')
+    G.load_state_dict(checkpoint)  # , strict=False)
     G = GeneratorWrapper(G)
     return G
