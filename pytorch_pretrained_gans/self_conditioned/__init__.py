@@ -64,10 +64,8 @@ class GeneratorWrapper(torch.nn.Module):
         x = self.G(z, y)
         return (x, y) if return_y else x
 
-    def sample_latent(self, batch_size=None, device='cpu'):
+    def sample_latent(self, batch_size, device='cpu'):
         z = torch.randn(size=(batch_size, self.dim_z), device=device)
-        # z = truncated_noise_sample(truncation=self.truncation, batch_size=batch_size)
-        # z = torch.from_numpy(z).to(device)
         return z
 
     def sample_class(self, batch_size=None, device='cpu'):

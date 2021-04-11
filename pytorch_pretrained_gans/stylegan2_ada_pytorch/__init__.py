@@ -41,11 +41,13 @@ class GeneratorWrapper(torch.nn.Module):
         self.truncation_cutoff = 8
 
     def forward(self, z):
+        r"""The input `z` is expected to be `w`, not `z`, in the notation
+            of the original StyleGAN 2 paper"""
         if len(z.shape) == 2:  # expand to 18 layers
             z = z.unsqueeze(1).repeat(1, self.num_ws, 1)
         return self.G.synthesis(z)
 
-    def sample_latent(self, batch_size, device='cuda'):
+    def sample_latent(self, batch_size, device='cpu'):
         z = torch.randn([batch_size, self.dim_z], device=device)
         c = None if self.conditional else None  # not implemented for conditional models
         w = self.G.mapping(z, c, truncation_psi=self.truncation_psi, truncation_cutoff=self.truncation_cutoff)

@@ -1,9 +1,9 @@
-from .BigBiGAN.gan_load import make_bigbigan
+from .BigGAN import make_biggan
+from .BigBiGAN import make_bigbigan
 from .self_conditioned import make_selfcond_gan
 from .stylegan2_ada_pytorch import make_stylegan2
 from .StudioGAN import make_studiogan
 from .CIPS import make_cips
-from .BigGAN import make_biggan
 
 
 def make_gan(*, gan_type, **kwargs):

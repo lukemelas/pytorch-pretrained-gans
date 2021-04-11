@@ -71,7 +71,7 @@ class GeneratorWrapper(torch.nn.Module):
         z =  # ... samples latent vector of size self.dim_z
         return z
 
-    def sample_class(self, batch_size=None, device='cpu'):
+    def sample_class(self, batch_size, device='cpu'):
         y =  # ... samples class y (for conditional GAN only)
         return y
 ```

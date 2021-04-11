@@ -1,7 +1,7 @@
 # SAGAN
 # https://drive.google.com/file/d/1exrZloM2bHYJyU5_v9XUMlNcy5TA6gMN/view?usp=sharing
 cd SAGAN
-gdown --id 1_RTYZ0RXbVLWufE7bbWPvp8n_QJbA8K0
+gdown --id 1exrZloM2bHYJyU5_v9XUMlNcy5TA6gMN
 cd ..
 
 # SNGAN
