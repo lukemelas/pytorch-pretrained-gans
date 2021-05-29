@@ -11,4 +11,10 @@ setup(
     url='https://github.com/lukemelas/',
     install_requires=[],
     packages=find_packages(),
+    package_data={'pytorch_pretrained_gans': 
+        [
+            'BigBiGAN/model/weights',
+            'StudioGAN/configs',
+        ]
+    },
 )

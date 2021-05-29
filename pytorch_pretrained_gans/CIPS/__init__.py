@@ -1,7 +1,12 @@
 import torch
 from typing import NamedTuple
 
-from .GeneratorsCIPS import CIPSskip, CIPSres
+try:
+    from .GeneratorsCIPS import CIPSskip
+    model_available = True
+except:
+    CIPSskip = None
+    model_available = False
 
 
 class Churches256Arguments(NamedTuple):
@@ -66,6 +71,9 @@ def convert_to_coord_format_unbatched(h, w, device='cpu', integer_values=False):
 
 
 def make_cips(model_name='churches', **kwargs) -> torch.nn.Module:
+    if not model_available:
+        raise Exception('Could not load model. Do you have CUDA?')
+
     checkpoint_path, args = MODELS[model_name]
     g_ema = args.Generator(
         size=args.size,
