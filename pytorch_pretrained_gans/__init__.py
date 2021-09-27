@@ -4,12 +4,15 @@ from .self_conditioned import make_selfcond_gan
 from .stylegan2_ada_pytorch import make_stylegan2
 from .StudioGAN import make_studiogan
 from .CIPS import make_cips
+from .ICGAN import make_icgan
 
 
 def make_gan(*, gan_type, **kwargs):
     t = gan_type.lower()
     if t == 'bigbigan':
         G = make_bigbigan(**kwargs)
+    elif t == 'icgan':
+        G = make_icgan(**kwargs)
     elif t == 'selfconditionedgan':
         G = make_selfcond_gan(**kwargs)
     elif t == 'studiogan':
