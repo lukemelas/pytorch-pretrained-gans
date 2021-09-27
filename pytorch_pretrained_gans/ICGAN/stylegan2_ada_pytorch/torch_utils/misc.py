@@ -17,8 +17,7 @@ import torch
 import warnings
 import sys
 
-sys.path.insert(1, os.path.join(sys.path[0], ".."))
-import stylegan2_ada_pytorch.dnnlib as dnnlib
+from .. import dnnlib as dnnlib
 
 # ----------------------------------------------------------------------------
 # Cached construction of constant tensors. Avoids CPU=>GPU copy when the

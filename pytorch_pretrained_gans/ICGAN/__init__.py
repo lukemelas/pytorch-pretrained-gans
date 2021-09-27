@@ -114,7 +114,7 @@ class GeneratorWrapper(torch.nn.Module):
         z = truncated_noise_sample(truncation=self.truncation, batch_size=batch_size)
         z = torch.from_numpy(z).to(device).float()
         return z
-
+    
     def sample_features(self, batch_size, device='cpu'):
         indices = np.random.choice(range(1000), batch_size, replace=False)
         feats = self.instance_features['instance_features'][indices]
@@ -167,3 +167,4 @@ if __name__ == '__main__':
     print(f'x.shape: {x.shape}')
     print(f'x.max(): {x.max()}')
     print(f'x.min(): {x.min()}')
+    print(z)
